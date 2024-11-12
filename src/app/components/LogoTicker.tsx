@@ -7,7 +7,7 @@ const LogoTicker = () => {
     <div className='py-6 bg-white md:py-12'>
         <div className='flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]'>
                 <div className='container'>
-                  <motion.div className='flex gap-14 flex-none pr-14' animate={{translateX:"-100%"}}
+                  <motion.div className='flex gap-14 flex-none pr-14' animate={{translateX:"-50%"}}
                   transition={{
                     duration:18,
                     repeat:Infinity,
