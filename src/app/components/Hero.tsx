@@ -1,16 +1,16 @@
 'use client';
-import React, { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React from 'react'
+import { motion } from 'framer-motion';
 
 
 const Hero = () => {
-  const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset:["start end", "end start"] 
-  });
+  // const heroRef = useRef(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: heroRef,
+  //   offset:["start end", "end start"] 
+  // });
 
-  const translateY = useTransform(scrollYProgress, [0,1], [150, -150]);
+  // const translateY = useTransform(scrollYProgress, [0,1], [150, -150]);
 
   return (
         <section className='pt-8 pb-20 md:pt-16 md:pb-32 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#183EC2,#EAEEFE_66%)]'>

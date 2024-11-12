@@ -61,22 +61,39 @@ const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
 
-const TestimonialColumn = (props: {testimonials:typeof testimonials}) => (
+type Testimonial = {
+  text: string;
+  imageSrc: string;
+  name: string;
+  username: string;
+};
+
+type TestimonialColumnProps = {
+  testimonials: Testimonial[];
+};
+
+const TestimonialColumn = ({ testimonials }: TestimonialColumnProps) => (
   <div className="flex flex-col justify-center items-center gap-4 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
-        {props.testimonials.map( ({text, imageSrc, name, username}) => (
-          <div className="card">
-            <div>{text}</div>
-            <div className='flex items-center gap-2 mt-5'>
-              <Image src ={imageSrc} alt='name' width={40} height={40} className='h-10 w-10 rounded-full'></Image>
-            </div>
-            <div className='flex flex-col relative -top-10 left-14'>
-              <h3 className='font-medium tracking-tight leading-6'>{name}</h3>
-              <span className='tracking-tight leading-6'>{username}</span>
-            </div>
-          </div>
-        ))}
+    {testimonials.map(({ text, imageSrc, name, username }, index) => (
+      <div key={index} className="card">
+        <div>{text}</div>
+        <div className="flex items-center gap-2 mt-5">
+          <Image
+            src={imageSrc}
+            alt={name}
+            width={40}
+            height={40}
+            className="h-10 w-10 rounded-full"
+          />
+        </div>
+        <div className="flex flex-col relative -top-10 left-14">
+          <h3 className="font-medium tracking-tight leading-6">{name}</h3>
+          <span className="tracking-tight leading-6">{username}</span>
+        </div>
       </div>
-)
+    ))}
+  </div>
+);
 
 export const Testimonials = () => {
   return(
